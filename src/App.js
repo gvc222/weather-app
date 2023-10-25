@@ -21,7 +21,6 @@ const App = () => {
 
   const search = evt => {
     if (evt.key === "Enter" || evt.keyCode === 13){
-      console.log("Enter is pressed")
       // Get API
       fetch(`${API_BASE}weather?q=${query}&units=metric&APPID=${API_KEY}`)
         .then(res => res.json())
@@ -30,7 +29,6 @@ const App = () => {
           setQuery("");
           console.log(weather);
         });
-          
     }
   }
 
@@ -42,19 +40,35 @@ const App = () => {
   //   console.log(weather);
   // }
 
+  const submitButton = (e) => {
+    e.preventDefault();
+    fetch(`${API_BASE}weather?q=${query}&units=metric&APPID=${API_KEY}`)
+        .then(res => res.json())
+        .then(result => {
+          setWeather(result);
+          setQuery("");
+          console.log(weather);
+        });
+    
+  }
+
   return (
     <div className={(typeof weather.main != "undefined") ? ((weather.main.temp > 16) ? 'app warm' : 'app') : 'app'}>
       <main>
-        <div className="search-box">
-          <input 
-            type="text" 
-            className="search-bar"
-            placeholder="Search..." 
-            onChange={(e) => setQuery(e.target.value)}
-            value={query}
-            onKeyDown={search}
-          />
-        </div>
+        <form className="search-form" onSubmit={submitButton}>
+          <div className="search-box">
+            <input 
+              type="text" 
+              className="search-bar"
+              placeholder="Type a location here..." 
+              onChange={(e) => setQuery(e.target.value)}
+              value={query}
+              onKeyDown={search}
+            />
+            <button type="submit" className='search-button'>Search</button>
+          </div>
+          
+        </form>
         {(typeof weather.main != "undefined") ? (
           <div>
             <div className='location-box'>
