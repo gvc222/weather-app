@@ -62,7 +62,7 @@ const App = () => {
               value={query}
               onKeyDown={search}
             />
-            <button type="submit" className='search-button'>Search</button>
+            <button type="submit" className='search-button'>Go</button>
           </div>
           
         </form>
