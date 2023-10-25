@@ -20,7 +20,7 @@ const App = () => {
   const [ query, setQuery ] = useState("");
 
   const search = evt => {
-    if (evt.key === "Enter"){
+    if (evt.key === "Enter" || evt.keyCode === 13){
       console.log("Enter is pressed")
       // Get API
       fetch(`${API_BASE}weather?q=${query}&units=metric&APPID=${API_KEY}`)
