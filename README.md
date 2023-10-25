@@ -1,5 +1,6 @@
 # Getting Started with Create React App
 
+App deployed using Netlify : https://main--neon-melba-3ad125.netlify.app/
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
