@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
-const API_BASE = "http://api.openweathermap.org/data/2.5/"
+const API_BASE = "https://api.openweathermap.org/data/2.5/"
 
 const App = () => {
   const dateBuilder = (d) => {
