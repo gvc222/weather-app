@@ -27,7 +27,6 @@ const App = () => {
         .then(result => {
           setWeather(result);
           setQuery("");
-          console.log(weather);
         });
     }
   }
@@ -47,9 +46,7 @@ const App = () => {
         .then(result => {
           setWeather(result);
           setQuery("");
-          console.log(weather);
         });
-    
   }
 
   return (
